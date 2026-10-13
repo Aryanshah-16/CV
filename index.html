@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aryan Shah | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f5f6;--panel:#ffffff;--ink:#151c2c;--muted:#667085;--line:#d9dce1;--gold:#9c7b3c;--side:#151c2c;--sideink:#eef0f3;--sidemuted:#98a2b3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161a;--panel:#1b1e24;--ink:#eceef2;--muted:#9aa3b2;--line:#2c313a;--gold:#c9a864;--side:#0f1115;--sidemuted:#8b94a3}}
+:root[data-theme="dark"]{--bg:#14161a;--panel:#1b1e24;--ink:#eceef2;--muted:#9aa3b2;--line:#2c313a;--gold:#c9a864;--side:#0f1115;--sidemuted:#8b94a3}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:50}
+.shell{display:grid;grid-template-columns:19rem minmax(0,1fr);min-height:100vh}
+aside{background:var(--side);color:var(--sideink);position:sticky;top:0;height:100vh;padding:3rem 2rem 2rem;display:flex;flex-direction:column;overflow:hidden}
+aside::before{content:"";position:absolute;width:26rem;height:26rem;left:-9rem;top:-9rem;border-radius:50%;border:1px solid rgba(255,255,255,.07);box-shadow:0 0 0 3rem rgba(255,255,255,.015),0 0 0 6rem rgba(255,255,255,.012);animation:breathe 14s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.12) translate(1rem,1rem)}}
+.mono{width:3.4rem;height:3.4rem;border:1px solid var(--gold);display:grid;place-items:center;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem;color:var(--gold);position:relative;animation:fade 1.2s .1s both}
+.mono::after{content:"";position:absolute;inset:-6px;border:1px solid rgba(156,123,60,.35);animation:fade 1.6s .5s both}
+.id{margin-top:2rem;position:relative}
+.nm{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:2.6rem;line-height:1.02;margin:0}
+.nm .ln{display:block;overflow:hidden}
+.nm .ln span{display:block;animation:up 1.1s cubic-bezier(.2,.8,.2,1) both}
+.nm .ln:nth-child(2) span{animation-delay:.18s}
+@keyframes up{from{transform:translateY(105%)}}
+@keyframes fade{from{opacity:0}}
+.role{color:var(--sidemuted);font-size:.95rem;margin:.9rem 0 0;animation:fade 1.4s .7s both}
+.role b{font-weight:500;color:var(--sideink);transition:opacity .5s}
+nav{margin-top:auto;margin-bottom:1.5rem;position:relative}
+nav ul{list-style:none;margin:0;padding:0}
+nav button{font:inherit;width:100%;text-align:left;background:none;border:0;color:var(--sidemuted);padding:.7rem 0;cursor:pointer;display:flex;align-items:center;gap:.9rem;transition:color .3s,padding-left .35s cubic-bezier(.2,.8,.2,1);border-bottom:1px solid rgba(255,255,255,.08);animation:fade 1s both}
+nav li:nth-child(1) button{animation-delay:.6s}nav li:nth-child(2) button{animation-delay:.7s}nav li:nth-child(3) button{animation-delay:.8s}nav li:nth-child(4) button{animation-delay:.9s}nav li:nth-child(5) button{animation-delay:1s}
+nav button::before{content:"";height:1px;width:0;background:var(--gold);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+nav button:hover{color:var(--sideink)}
+nav button[aria-selected="true"]{color:var(--sideink);padding-left:.2rem}
+nav button[aria-selected="true"]::before{width:1.6rem}
+nav button:focus-visible,.btn:focus-visible,.flt button:focus-visible,.tg:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.tg{background:none;border:1px solid rgba(255,255,255,.2);color:var(--sidemuted);font:inherit;font-size:.82rem;padding:.4rem .8rem;cursor:pointer;align-self:flex-start;transition:.3s;position:relative}
+.tg:hover{color:var(--sideink);border-color:var(--gold)}
+.stage{position:relative;padding:4.5rem clamp(1.25rem,5vw,5rem) 5rem;max-width:none;width:100%;min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+.stage::before{content:"";position:fixed;right:-10vw;top:-15vh;width:50vw;height:50vw;border-radius:50%;background:radial-gradient(circle,rgba(156,123,60,.09),transparent 65%);pointer-events:none;animation:sway 20s ease-in-out infinite alternate}
+@keyframes sway{to{transform:translate(-8vw,12vh)}}
+section[hidden]{display:none}
+section.in .rv{animation:rise .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*110ms)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}}
+.rule{height:1px;background:var(--gold);transform-origin:left;width:5rem;margin:1.2rem 0 1.6rem}
+section.in .rule{animation:draw 1.1s .25s cubic-bezier(.2,.8,.2,1) both}
+@keyframes draw{from{transform:scaleX(0)}}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.3rem,5vw,3.7rem);line-height:1.05;margin:0;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:38rem;margin:0 0 2.5rem;font-size:1.05rem}
+h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.5rem;margin:0 0 .4rem}
+.grid{display:grid;gap:1.25rem}
+.goal-cards{display:grid;gap:1.25rem;max-width:54rem}
+.goal-cards .blk p{line-height:1.8}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,13.5rem),1fr))}
+.blk{background:var(--panel);border:1px solid var(--line);border-radius:2px;padding:1.6rem;position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.blk::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.blk:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(21,28,44,.45)}
+.blk:hover::after{transform:scaleX(1)}
+.ph{color:var(--muted);margin:0;font-size:.97rem}
+.dash{border:1px dashed var(--line);padding:1.2rem;margin-top:.7rem}
+.split{display:grid;gap:2.5rem;grid-template-columns:minmax(0,.75fr) minmax(0,1.5fr);align-items:start}
+.photo{aspect-ratio:4/5;border:1px solid var(--line);background:var(--panel);position:relative;display:grid;place-items:center;color:var(--muted);text-align:center;padding:1rem}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo::before{content:"";position:absolute;inset:.8rem;border:1px solid var(--gold);opacity:.55}
+.photo::after{content:"";position:absolute;inset:-.9rem -.9rem auto auto;width:40%;height:40%;border-top:1px solid var(--gold);border-right:1px solid var(--gold)}
+.num{font-family:"Cormorant Garamond",Georgia,serif;font-size:3.2rem;line-height:1;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.tags span{border:1px solid var(--line);padding:.3rem .85rem;font-size:.9rem;color:var(--muted);transition:.3s}
+.tags span:hover{border-color:var(--gold);color:var(--ink)}
+.tl{border-left:1px solid var(--gold);padding-left:1.6rem;display:grid;gap:1.25rem;margin-left:.3rem}
+.tl .blk::before{content:"";position:absolute;left:-2.15rem;top:2rem;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+.btn{display:inline-block;font:inherit;font-weight:500;text-decoration:none;color:var(--bg);background:var(--ink);padding:.8rem 1.6rem;border:1px solid var(--ink);transition:.35s;position:relative}
+.btn:hover{background:transparent;color:var(--ink)}
+.row{display:flex;justify-content:space-between;font-size:.92rem}
+.bar{height:2px;background:var(--line);margin:.45rem 0 1.2rem;position:relative}
+.bar i{position:absolute;left:0;top:0;height:2px;width:0;background:var(--gold);transition:width 1.5s cubic-bezier(.2,.8,.2,1)}
+.lk{display:block;text-decoration:none;color:var(--ink)}
+.lk small{display:block;color:var(--gold);font-weight:600;letter-spacing:.04em}
+.lk span{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.5rem}
+footer{color:var(--muted);font-size:.88rem;margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+@media (max-width:860px){
+ .shell{grid-template-columns:1fr}
+ aside{position:relative;height:auto;padding:1.8rem 1.25rem 1rem}
+ .nm{font-size:2.2rem}
+ nav{margin-top:1.5rem;margin-bottom:1rem}
+ nav ul{display:flex;overflow-x:auto;gap:1.3rem;scrollbar-width:none;border-bottom:1px solid rgba(255,255,255,.12)}
+ nav button{width:auto;white-space:nowrap;border:0;padding:.7rem 0;position:relative}
+ nav button::before{display:none}
+ nav button[aria-selected="true"]{padding-left:0;box-shadow:inset 0 -2px 0 var(--gold)}
+ .split{grid-template-columns:1fr}.photo{max-width:15rem}
+ .stage{padding-top:2.5rem;min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="shell">
+<aside>
+  <div class="mono" id="mono">YN</div>
+  <div class="id">
+    <h1 class="nm" id="nm"><span class="ln"><span>Aryan</span></span><span class="ln"><span>Shah</span></span></h1>
+    <p class="role"><b id="role">Student</b> &middot; Portfolio</p>
+  </div>
+  <nav aria-label="Main">
+    <ul role="tablist" id="tabs">
+      <li><button role="tab" aria-controls="about" aria-selected="true">About Me</button></li>
+      <li><button role="tab" aria-controls="goals" aria-selected="false">Academic and Goals Statement</button></li>
+      <li><button role="tab" aria-controls="work" aria-selected="false">Written Work and Portfolio</button></li>
+      <li><button role="tab" aria-controls="resume" aria-selected="false">Resume</button></li>
+      <li><button role="tab" aria-controls="contact" aria-selected="false">Contact Information</button></li>
+    </ul>
+  </nav>
+  <button class="tg" id="tg" aria-label="Switch between light and dark appearance">Light / Dark</button>
+</aside>
+
+<div class="stage">
+<main>
+<section id="about" role="tabpanel">
+  <h2 class="rv" style="--i:0">About Me</h2><div class="rule rv" style="--i:0"></div>
+  <p class="lead rv" style="--i:1">I'm Aryan Shah and I'm an senior at Dupont Manual High School. I am currently involved in genetic engineering, hands on engineering projects, and competitive robotics.</p>
+  <div class="split rv" style="--i:2">
+    <div class="photo"><img src="./headshot.jpg" alt="Portrait of Aryan Shah"></div>
+    <div class="grid">
+            <div class="blk"><h3>Interests</h3><div class="tags"><span>Robotics</span><span>Aerospace</span><span>Engineering</span><span>Research</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="goals" role="tabpanel" hidden>
+  <h2 class="rv" style="--i:0">Academic, Research and Goals Statement</h2><div class="rule rv" style="--i:0"></div>
+  <div class="goal-cards">
+    <article class="blk rv" style="--i:1">
+      <h3>Background</h3>
+      <p class="ph">I am a student involved in VEX robotics, where I design, build, and solve problems hands-on. It fits perfectly with my love of engineering. Outside of academics, I spend my free time playing pickleball and badminton. Both keep me active, focused and ready to adapt quickly. I have also traveled to Paris twice, and it taught me that I love meeting and talking with new people. One week there with teammates at a research conference stood out the most. I met other people who were just as curious about research as I am, and that experience shaped how I want to learn and work in the future. I also am very involved in research in lung cancer and engineering E-Coli.</p>
+    </article>
+    <article class="blk rv" style="--i:2">
+      <h3>Statement</h3>
+      <p class="ph">I learn best by building things, which is why I want to become an aeronautical engineer. My academic goal is to study aeronautical engineering and take on hands-on projects, especially work on real planes, so I can turn what I learn in class into skills I can use. Research is also important to me. I plan to conduct wet-lab research in genetic engineering, including work with E. coli, and contribute to multiple research papers, including studies on lung cancer and breast cancer that use copper compounds. I also want to attend and present at numerous conferences, because I love talking with people about my research and hearing about theirs.</p>
+      <p class="ph" style="margin-top:1rem">My long-term goal is to work in manufacturing or repair for major airliners or the military. I would like to work for a company such as Boeing, Airbus in Europe, or a local military contractor like Lockheed Martin, or join the Air Force through ROTC in college. I would also be proud to work in airliner maintenance for airlines such as Delta, Air France, or Lufthansa, keeping aircraft safe for the people who fly on them.</p>
+    </article>
+    <article class="blk rv" style="--i:3">
+      <h3>Research interests</h3>
+      <div class="tags"><span>Genetic Engineering</span><span>Lung Cancer</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="work" role="tabpanel" hidden>
+  <h2 class="rv" style="--i:0">Written Work and Portfolio</h2><div class="rule rv" style="--i:0"></div>
+  <div class="grid rv" style="--i:1;max-width:48rem">
+    <article class="blk">
+      <small style="display:block;color:var(--gold);font-weight:600;letter-spacing:.04em;margin-bottom:.4rem">Research Paper</small>
+      <h3>Utilizing Copper Compounds to Develop an Anti-Cancer Agent</h3>
+      <a class="btn" style="margin-top:1rem" href="https://drive.google.com/file/d/1hRX5zih8_zuydU0RoxW4lm8aKuqAs4aZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Research Paper</a>
+    </article>
+  </div>
+</section>
+
+<section id="resume" role="tabpanel">
+  <h2 class="rv" style="--i:0">Resume</h2><div class="rule rv" style="--i:0"></div>
+  <p class="lead rv" style="--i:1">Education, experience and skills at a glance.</p>
+  <div class="rv" style="--i:2; display:flex; flex-wrap:wrap; gap:1rem;">
+    <a class="btn" href="https://drive.google.com/file/d/1y0DwmKhab4u21bacDY8Z3U-4cJDmytX7/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open Full Resume</a>
+    <a class="btn" href="https://drive.google.com/file/d/1WriBbXIWQ1dRkJZ9K-1njQICIyYYiSLZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">Open 2-Page Resume</a>
+  </div>
+</section>
+
+<section id="contact" role="tabpanel" hidden>
+  <h2 class="rv" style="--i:0">Contact Information</h2><div class="rule rv" style="--i:0"></div>
+  <p class="lead rv" style="--i:1">The best ways to reach me.</p>
+  <div class="grid g2 rv" style="--i:2">
+    <div class="blk"><a class="lk" href="#" onclick="return false"><small>Email</small><span>aryanpshah16@gmail.com</span></a></div>
+    <div class="blk"><a class="lk" href="#" onclick="return false"><small>Location</small><span>Louisville, Kentucky</span></a></div>
+    <div class="blk"><small>LinkedIn</small><p class="ph" style="margin:.5rem 0 1rem">Connect with me professionally.</p><a class="btn" href="https://www.linkedin.com/in/aryanshah16/" target="_blank" rel="noopener noreferrer">View LinkedIn Profile</a></div>
+  </div>
+</section>
+</main>
+<footer>&copy; Aryan Shah</footer>
+</div>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const tabs=$$('[role=tab]');
+function fx(sec){
+ $$('.num',sec).forEach(e=>{const n=+e.dataset.n,st=performance.now();(function f(t){const p=Math.min((t-st)/1400,1);e.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(st)});
+ $$('.bar i',sec).forEach(b=>{b.style.width='0';setTimeout(()=>b.style.width=b.dataset.w+'%',300)});
+}
+function show(id,scroll){
+ tabs.forEach(t=>{const on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on);
+  const s=document.getElementById(t.getAttribute('aria-controls'));s.hidden=!on;s.classList.remove('in');
+  if(on){void s.offsetWidth;s.classList.add('in');fx(s)}});
+ if(scroll)scrollTo({top:innerWidth<=860?$('nav').offsetTop-10:0,behavior:'smooth'});
+}
+tabs.forEach(t=>t.addEventListener('click',()=>{const id=t.getAttribute('aria-controls');show(id,true);try{history.replaceState(null,'','#'+id)}catch(e){}}));
+$('#tabs').addEventListener('keydown',e=>{const i=tabs.indexOf(document.activeElement);if(i<0)return;
+ const k={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[e.key];if(!k)return;e.preventDefault();const n=tabs[(i+k+tabs.length)%tabs.length];n.focus();n.click()});
+const h=location.hash.slice(1);show(tabs.some(t=>t.getAttribute('aria-controls')===h)?h:'about');
+/* rotating role */
+const roles=['Student','Writer','Researcher','Scholar'];let ri=0;const rl=$('#role');
+setInterval(()=>{rl.style.opacity=0;setTimeout(()=>{ri=(ri+1)%roles.length;rl.textContent=roles[ri];rl.style.opacity=1},500)},3200);
+/* scroll progress */
+addEventListener('scroll',()=>{const d=document.documentElement;$('#prog').style.width=(scrollY/Math.max(1,d.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+/* theme toggle */
+$('#tg').addEventListener('click',()=>{const r=document.documentElement;
+ const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+ r.dataset.theme=dark?'light':'dark'});
+/* monogram from name */
+const parts=$('#nm').textContent.trim().split(/(?<=[a-z])(?=[A-Z])|\s+/).filter(Boolean);
+if(parts.length>1)$('#mono').textContent=(parts[0][0]+parts[parts.length-1][0]).toUpperCase();
+</script>
+</body>
+</html>
