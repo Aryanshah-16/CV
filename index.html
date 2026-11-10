@@ -87,6 +87,18 @@ h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.5r
 .resume-document h3{margin-bottom:.8rem}
 .resume-document iframe{display:block;width:100%;height:min(80vh,900px);min-height:32rem;border:1px solid var(--line);background:var(--panel)}
 .resume-document a{display:inline-block;margin-top:.5rem;color:var(--gold)}
+.portfolio-carousel{max-width:42rem;margin-bottom:3rem}
+.portfolio-item{padding:1rem}
+.portfolio-preview{display:block;width:100%;height:clamp(16rem,35vw,24rem);border:1px solid var(--line);background:var(--bg)}
+.portfolio-item p{margin:.8rem 0 0}
+.portfolio-item a{display:inline-block;margin-top:.5rem;color:var(--gold)}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1rem}
+.carousel-controls button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);padding:.45rem .8rem;cursor:pointer}
+.carousel-controls button:hover,.carousel-controls button[aria-pressed="true"]{border-color:var(--gold)}
+.carousel-dots{display:flex;gap:.45rem}
+.carousel-dots button{width:.75rem;height:.75rem;padding:0;border-radius:50%;background:var(--line)}
+.carousel-dots button[aria-pressed="true"]{background:var(--gold)}
+.carousel-controls button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 footer{color:var(--muted);font-size:.88rem;margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 @media (max-width:860px){
  .shell{grid-template-columns:1fr}
@@ -159,6 +171,43 @@ footer{color:var(--muted);font-size:.88rem;margin-top:4rem;padding-top:1.2rem;bo
 
 <section id="work" role="tabpanel" hidden>
   <h2 class="rv" style="--i:0">Written Work and Portfolio</h2><div class="rule rv" style="--i:0"></div>
+  <h3 class="rv" style="--i:1">Robotics Projects</h3>
+  <div class="portfolio-carousel rv" style="--i:2" role="region" aria-roledescription="carousel" aria-label="Robotics projects">
+    <article class="blk portfolio-item" role="group" aria-roledescription="slide" aria-label="1 of 5">
+      <iframe class="portfolio-preview" src="https://drive.google.com/file/d/1eSeYwa0ji39x4rykcue3--Kessrh9Ijk/preview" title="VEX robotics competition robot with roller intake" loading="lazy" allow="autoplay"></iframe>
+      <p class="ph">VEX robotics competition robot</p>
+      <a href="https://drive.google.com/file/d/1eSeYwa0ji39x4rykcue3--Kessrh9Ijk/view" target="_blank" rel="noopener noreferrer">Open picture in Google Drive</a>
+    </article>
+    <article class="blk portfolio-item" role="group" aria-roledescription="slide" aria-label="2 of 5" hidden>
+      <iframe class="portfolio-preview" src="https://drive.google.com/file/d/1ay1FkCO6NZC6nvqtx4bsWt-0UquKMtEk/preview" title="Robotics project video" loading="lazy" allow="autoplay"></iframe>
+      <p class="ph">Robotics project video</p>
+      <a href="https://drive.google.com/file/d/1ay1FkCO6NZC6nvqtx4bsWt-0UquKMtEk/view" target="_blank" rel="noopener noreferrer">Open video in Google Drive</a>
+    </article>
+    <article class="blk portfolio-item" role="group" aria-roledescription="slide" aria-label="3 of 5" hidden>
+      <img src="./IMG_2983.jpg" alt="VEX robotics competition robot with a raised mechanism">
+      <p class="ph">VEX robot mechanism and build</p>
+    </article>
+    <article class="blk portfolio-item" role="group" aria-roledescription="slide" aria-label="4 of 5" hidden>
+      <img src="./Screenshot%202026-11-09%20224312.png" alt="Red VEX robot viewed from above">
+      <p class="ph">VEX robot design</p>
+    </article>
+    <article class="blk portfolio-item" role="group" aria-roledescription="slide" aria-label="5 of 5" hidden>
+      <img src="./Screenshot%202026-11-09%20224459.png" alt="Yellow robotics project with wheels">
+      <p class="ph">Robotics project prototype</p>
+    </article>
+    <div class="carousel-controls">
+      <button type="button" class="carousel-prev" aria-label="Previous robotics project">Previous</button>
+      <div class="carousel-dots" role="group" aria-label="Choose robotics project">
+        <button type="button" aria-label="Show robotics project 1" aria-pressed="true"></button>
+        <button type="button" aria-label="Show robotics project 2" aria-pressed="false"></button>
+        <button type="button" aria-label="Show robotics project 3" aria-pressed="false"></button>
+        <button type="button" aria-label="Show robotics project 4" aria-pressed="false"></button>
+        <button type="button" aria-label="Show robotics project 5" aria-pressed="false"></button>
+      </div>
+      <button type="button" class="carousel-next" aria-label="Next robotics project">Next</button>
+    </div>
+    <p class="ph" aria-live="polite" aria-atomic="true" data-carousel-status>Project 1 of 5</p>
+  </div>
   <div class="resume-list rv" style="--i:1;max-width:48rem">
     <article class="resume-document">
       <small style="display:block;color:var(--gold);font-weight:600;letter-spacing:.04em;margin-bottom:.4rem">Research Paper</small>
@@ -217,6 +266,24 @@ footer{color:var(--muted);font-size:.88rem;margin-top:4rem;padding-top:1.2rem;bo
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const tabs=$$('[role=tab]');
+const carousel=$('.portfolio-carousel');
+const slides=$$('.portfolio-item',carousel);
+const carouselDots=$$('.carousel-dots button',carousel);
+let currentSlide=0;
+function showSlide(index){
+ currentSlide=(index+slides.length)%slides.length;
+ slides.forEach((slide,i)=>{slide.hidden=i!==currentSlide});
+ carouselDots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===currentSlide)));
+ $('[data-carousel-status]',carousel).textContent=`Project ${currentSlide+1} of ${slides.length}`;
+}
+$('.carousel-prev',carousel).addEventListener('click',()=>showSlide(currentSlide-1));
+$('.carousel-next',carousel).addEventListener('click',()=>showSlide(currentSlide+1));
+carouselDots.forEach((dot,i)=>dot.addEventListener('click',()=>showSlide(i)));
+carousel.addEventListener('keydown',e=>{
+ if(e.target.closest('iframe'))return;
+ if(e.key==='ArrowLeft'){e.preventDefault();showSlide(currentSlide-1)}
+ if(e.key==='ArrowRight'){e.preventDefault();showSlide(currentSlide+1)}
+});
 function fx(sec){
  $$('.num',sec).forEach(e=>{const n=+e.dataset.n,st=performance.now();(function f(t){const p=Math.min((t-st)/1400,1);e.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(st)});
  $$('.bar i',sec).forEach(b=>{b.style.width='0';setTimeout(()=>b.style.width=b.dataset.w+'%',300)});
